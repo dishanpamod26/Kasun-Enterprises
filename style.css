@@ -496,7 +496,39 @@ p {
     align-items: center;
     justify-content: center;
     color: #666;
+}/* Production Section Styling */
+.production-gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
 }
+
+.production-img-wrapper {
+    flex: 1;
+    min-width: 200px;
+    max-width: 320px;
+    height: 180px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: var(--transition);
+}
+
+.production-img-wrapper:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.production-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 /* Brands Section */
 .brands-row {
     display: flex;
