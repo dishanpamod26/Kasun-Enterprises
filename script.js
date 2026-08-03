@@ -36,8 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    // Add initial styles and observe elements
-    const elementsToAnimate = document.querySelectorAll('.section-title, .about-text, .about-image, .stat-card, .product-card, .contact-item, .contact-form');
+    // Add initial styles and observe elements (exclude sub-category container)
+    const elementsToAnimate = document.querySelectorAll('.section-title, .about-text, .about-image, .stat-card, .product-card:not(#ksafe-products-container .product-card), .contact-item, .contact-form');
     
     elementsToAnimate.forEach(el => {
         el.style.opacity = '0';
@@ -90,20 +90,52 @@ document.addEventListener('DOMContentLoaded', () => {
     const ksafeProductsContainer = document.getElementById('ksafe-products-container');
 
     if(ksafeToggleBtn && ksafeProductsContainer) {
+        // Make sure inner cards are fully visible when container shows
+        const innerCards = ksafeProductsContainer.querySelectorAll('.product-card');
+        innerCards.forEach(card => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        });
+
         ksafeToggleBtn.addEventListener('click', () => {
-            if (ksafeProductsContainer.style.display === 'none') {
+            const isHidden = ksafeProductsContainer.style.display === 'none' || ksafeProductsContainer.style.display === '';
+            if (isHidden) {
                 ksafeProductsContainer.style.display = 'block';
-                ksafeToggleBtn.querySelector('.click-more i').classList.remove('fa-chevron-down');
-                ksafeToggleBtn.querySelector('.click-more i').classList.add('fa-chevron-up');
-                
-                // Scroll down a bit to show the products
+                ksafeToggleBtn.querySelector('.click-more i').className = 'fas fa-chevron-up';
+                // Scroll down to show the products
                 setTimeout(() => {
                     ksafeProductsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }, 100);
+
+                // Animate inner cards in
+                innerCards.forEach((card, i) => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        card.style.transition = 'opacity 0.4s ease-out, transform 0.4s ease-out';
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, i * 80);
+                });
+
+                // Add click events to the inner cards for modal
+                if (modal) {
+                    innerCards.forEach(card => {
+                        card.onclick = () => {
+                            const title = card.getAttribute('data-title');
+                            const description = card.getAttribute('data-description');
+                            const imgSrc = card.querySelector('img').getAttribute('src');
+                            modalTitle.textContent = title;
+                            modalDescription.innerHTML = description;
+                            modalImage.setAttribute('src', imgSrc);
+                            modal.classList.add('show');
+                            document.body.style.overflow = 'hidden';
+                        };
+                    });
+                }
             } else {
                 ksafeProductsContainer.style.display = 'none';
-                ksafeToggleBtn.querySelector('.click-more i').classList.remove('fa-chevron-up');
-                ksafeToggleBtn.querySelector('.click-more i').classList.add('fa-chevron-down');
+                ksafeToggleBtn.querySelector('.click-more i').className = 'fas fa-chevron-down';
             }
         });
     }
