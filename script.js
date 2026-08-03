@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const imgSrc = card.querySelector('img').getAttribute('src');
 
                 modalTitle.textContent = title;
-                modalDescription.textContent = description;
+                modalDescription.innerHTML = description;
                 modalImage.setAttribute('src', imgSrc);
 
                 modal.classList.add('show');
