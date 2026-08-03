@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalTitle = document.getElementById('modalTitle');
     const modalDescription = document.getElementById('modalDescription');
     const closeBtn = document.querySelector('.close-modal');
-    const productCards = document.querySelectorAll('.product-card');
+    const productCards = document.querySelectorAll('.product-card:not(.category-card)'); // Exclude category cards from modal
 
     if(modal && productCards.length > 0) {
         productCards.forEach(card => {
@@ -81,6 +81,29 @@ document.addEventListener('DOMContentLoaded', () => {
             if (event.target == modal) {
                 modal.classList.remove('show');
                 document.body.style.overflow = 'auto';
+            }
+        });
+    }
+
+    // Sub-category Toggle Logic for K Safe
+    const ksafeToggleBtn = document.getElementById('ksafe-toggle-btn');
+    const ksafeProductsContainer = document.getElementById('ksafe-products-container');
+
+    if(ksafeToggleBtn && ksafeProductsContainer) {
+        ksafeToggleBtn.addEventListener('click', () => {
+            if (ksafeProductsContainer.style.display === 'none') {
+                ksafeProductsContainer.style.display = 'block';
+                ksafeToggleBtn.querySelector('.click-more i').classList.remove('fa-chevron-down');
+                ksafeToggleBtn.querySelector('.click-more i').classList.add('fa-chevron-up');
+                
+                // Scroll down a bit to show the products
+                setTimeout(() => {
+                    ksafeProductsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            } else {
+                ksafeProductsContainer.style.display = 'none';
+                ksafeToggleBtn.querySelector('.click-more i').classList.remove('fa-chevron-up');
+                ksafeToggleBtn.querySelector('.click-more i').classList.add('fa-chevron-down');
             }
         });
     }
