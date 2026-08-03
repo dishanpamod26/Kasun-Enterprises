@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.section-title, .about-text, .about-image, .stat-card, .product-card, .gallery-card, .contact-item, .contact-form').forEach(el => {
+    document.querySelectorAll('.section-title, .about-text, .about-image, .stat-card, .product-card, .contact-item, .contact-form').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';
         el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
