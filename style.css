@@ -496,9 +496,14 @@ p {
     align-items: center;
     justify-content: center;
     color: #666;
-}/* Production Section Background */
+}
+
+/* Production Section Background */
 .production-bg-section {
-    background: linear-gradient(rgba(255,255,255,0.88), rgba(255,255,255,0.88)), url('11.jpeg') center/cover no-repeat;
+    background-image: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('11.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 /* Brands Section */
