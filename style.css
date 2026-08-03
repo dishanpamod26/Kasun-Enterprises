@@ -1,3 +1,14 @@
+/* Scroll Fade Animation */
+.fade-init {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-init.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Reset and Base Styles */
 :root {
     --primary-color: #2b5597; /* Blue from the PDF */
@@ -169,7 +180,7 @@ p {
     height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(rgba(43, 85, 151, 0.8), rgba(59, 59, 59, 0.8)), url('https://images.unsplash.com/photo-1595341888016-a392ef81b7de?q=80&w=2079&auto=format&fit=crop') center/cover;
+    background: linear-gradient(rgba(43, 85, 151, 0.8), rgba(59, 59, 59, 0.8)), url('bg.png') center/cover;
     color: var(--white);
     text-align: center;
     margin-top: 60px; /* Offset for navbar */
