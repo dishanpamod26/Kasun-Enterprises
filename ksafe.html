@@ -11,6 +11,10 @@
     <style>
         body {
             background-color: #121212;
+            background-image: linear-gradient(rgba(18, 18, 18, 0.92), rgba(18, 18, 18, 0.92)), url('bg ksafe.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: #ffffff;
         }
 
@@ -193,6 +197,38 @@
         }
         .close-modal:hover { color: #ffcc00; background: #ffffff; }
 
+        /* K Safe Info Section */
+        .ksafe-info-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 3rem 0;
+            border-top: 1px solid #2d2d2d;
+            margin-top: 2rem;
+        }
+        .info-image-container {
+            flex: 1;
+            min-width: 280px;
+            max-width: 450px;
+            background: #1e1e1e;
+            border: 2px solid #ffcc00;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            transition: transform 0.3s;
+        }
+        .info-image-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255,204,0,0.15);
+        }
+        .info-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         @media (max-width: 650px) {
             .modal-body { flex-direction: column; }
             .modal-body img { width: 100%; min-height: 220px; }
@@ -312,6 +348,16 @@
                     </div>
                 </div>
 
+            </div>
+
+            <!-- Brand Information Section -->
+            <div class="ksafe-info-section">
+                <div class="info-image-container">
+                    <img src="ks info.png" alt="K Safe Info">
+                </div>
+                <div class="info-image-container">
+                    <img src="ksafe bg.png" alt="K Safe Technical Specifications">
+                </div>
             </div>
         </div>
     </main>
