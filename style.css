@@ -501,23 +501,23 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1.2rem;
-    margin-top: 2rem;
-    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+    flex-wrap: nowrap; /* strictly one line */
 }
 
 .production-img-wrapper {
-    width: 150px;
-    height: 100px;
-    border-radius: 6px;
+    width: 90px;
+    height: 65px;
+    border-radius: 4px;
     overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
     transition: var(--transition);
 }
 
 .production-img-wrapper:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .production-img-wrapper img {
