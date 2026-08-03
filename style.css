@@ -500,10 +500,11 @@ p {
 
 /* Production Section Background */
 .production-bg-section {
-    background-image: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('11.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-image: linear-gradient(rgba(255,255,255,0.82), rgba(255,255,255,0.82)), url('11.jpeg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-color: transparent !important;
 }
 
 /* Brands Section */
